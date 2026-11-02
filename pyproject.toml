@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "seekdb"
+version = "0.1.0"
+description = "Standalone Nuvio-compatible thumbnail pool"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "AGPL-3.0-or-later" }
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Internet :: WWW/HTTP :: HTTP Servers",
+]
+dependencies = [
+  "cryptography>=42",
+  "fastapi>=0.115,<1",
+  "python-dotenv>=1.0,<2",
+  "telethon>=1.36,<2",
+  "uvicorn[standard]>=0.30,<1",
+]
+
+[project.scripts]
+seekdb = "seekdb.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["seekdb*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

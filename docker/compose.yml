@@ -1,0 +1,29 @@
+services:
+  seekdb:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    restart: unless-stopped
+    env_file:
+      - ../.env
+    environment:
+      SEEKDB_DATA: /data
+      SEEKDB_HOST: 0.0.0.0
+      SEEKDB_PORT: 8787
+    ports:
+      - "${SEEKDB_PORT:-8787}:8787"
+    volumes:
+      - seekdb-data:/data
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import ssl,urllib.request; urllib.request.urlopen('https://127.0.0.1:8787/v1/health', context=ssl._create_unverified_context(), timeout=3).read()"
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+
+volumes:
+  seekdb-data:
