@@ -71,7 +71,7 @@ def _command_serve(settings: Settings) -> int:
         role = "reader" if settings.effective_pool_mode == "channel" else "contributor"
         invitation = invites.create(label="bootstrap", role=role, ttl_s=settings.bootstrap_invite_ttl_s,
                                     max_uses=settings.bootstrap_invite_uses, contribute=role == "contributor")
-        print(f"Initial contributor invite (shown once): {invitation['code']}")
+        print(f"Initial {role} invite (shown once): {invitation['code']}")
     if settings.public_url:
         print(f"SeekDB URL: {settings.public_url}")
     print(f"SeekDB TLS pin: {pin}")

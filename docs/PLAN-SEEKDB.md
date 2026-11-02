@@ -1,6 +1,6 @@
 # Plan: SeekDB — a standalone thumbnail pool
 
-Status: implementation in progress; v1 API, stores, pairing, channel index, CLI, and container setup are in place. Cloud phases remain future work.
+Status: v1 implementation is in place; all 14 focused Python tests and the Nuvio pool client checks pass. Live Telegram deployment checks, broader load testing, and resource measurement remain. Cloud phases remain future work.
 Scope: new `seekdb` service; OpenSeek becomes an optional generator, not the pool runtime.
 Implementation rule: copy working pool code and tests from `openseek-telegram`; do not rewrite them from scratch.
 

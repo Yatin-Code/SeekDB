@@ -12,3 +12,10 @@ Python 3.12 or newer is required. The package is formatted as a standard Python
 project and keeps implementation modules under `seekdb/`. New store and index
 backends should implement the interfaces in `seekdb/store/base.py` and the
 index package rather than coupling application routes to a specific database.
+
+Install the test extra and run the focused suite before submitting a change:
+
+```sh
+python -m pip install -e ".[test]"
+python -m pytest -q
+```

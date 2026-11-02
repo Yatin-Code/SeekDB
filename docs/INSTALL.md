@@ -15,8 +15,8 @@ docker compose --env-file .env -f docker/compose.yml logs -f seekdb
 ```
 
 On the first host-mode start, the process prints one contributor invite and
-the TLS SPKI pin. Save both. The invite is only printed once; the service keeps
-only its derived verifier in SQLite. The admin token is generated in the data
+the TLS SPKI pin. Channel mode prints a reader invite. Save both. The invite
+secret is only printed once; the service keeps its derived key in SQLite. The admin token is generated in the data
 directory when `SEEKDB_ADMIN_TOKEN` is unset, and local admin requests are
 limited to loopback.
 
